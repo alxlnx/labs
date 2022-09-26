@@ -1,4 +1,5 @@
 ## Setting up git & github: 
+- Add info about you to git: ``git config --global user.name "Saul Goodman"; git config --global user.email "dead@dead.zombie"``
 - Create ssh keys: ``shh-keygen [-t ed25519] file_name``
 - Add generated public key (.pub extension) to your github account (see your profile settings)
 - Add private key (you need that for deciphering messages sent to you) to your machine: ``ssh-add file_name``

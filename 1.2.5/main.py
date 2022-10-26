@@ -31,8 +31,12 @@ I_cyl = 0.5 * m * np.square(R)
 I0 = I_cyl * np.square(T0 / T_cyl)
 # print(T0 / T_cyl, np.square(T0 / T_cyl))
 
-T0_err = np.std(T0_times, ddof=1) / np.sqrt(len(T0_times))
-T_cyl_err = np.std(T_cyl_times, ddof=1) / np.sqrt(len(T_cyl_times))
+# НЕ учтено время реакции (0.24 * 2)
+# Если просто присвоить T0_err и T_cyl_err 0.24 * 2, то отн. погр. будут 12% и 15%
+# Если ещё разделить на корень из 10 (как погр. среднего), то 7% и 9%?, 
+# тогда у момента инерции ротора 22% процента
+T0_err =  np.std(T0_times / N, ddof=1) / np.sqrt(len(T0_times))
+T_cyl_err =  np.std(T_cyl_times / N, ddof=1) / np.sqrt(len(T_cyl_times))
 
 PR = 6
 print(f'Средний период цилиндра: {T_cyl:.{PR}f}, ротора: {T0:.{PR}f}')

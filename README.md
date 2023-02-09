@@ -1,2 +1,2 @@
 # labs  
-Scripts for data proccessing needed for uni labs.
+Scripts & Jupyter notebooks for data processing needed for uni labs.

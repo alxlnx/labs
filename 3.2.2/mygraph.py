@@ -73,11 +73,11 @@ def make_figure(dpi_mode: str = 'low', orientation='landscape') -> plt.figure:
     return plt.figure(figsize=SIZE, dpi=DPI, layout='constrained')
 
 
-def draw_errorbar(ax: plt.Axes, X: np.ndarray | list, Y: np.ndarray | list, x_err: float = 0, y_err: float = 0):
+def draw_errorbar(ax: plt.Axes, X: np.ndarray | list, Y: np.ndarray | list, x_err: float = 0, y_err: float = 0, label: str = ''):
     ''' Draw an errorbar of X and Y on axes ax. '''
     ax.errorbar(X, Y, 
                 fmt='ks', linewidth=0, markersize=5, elinewidth=1, capsize=3, zorder=3,
-                xerr=x_err, yerr=y_err)
+                xerr=x_err, yerr=y_err, label=label)
 
 def set_grids(fig: plt.Figure) -> None:
     ''' Set grids for all axes in a figure. '''

@@ -57,8 +57,14 @@ def display_linls(ax: plt.Axes, text: bool = True, color: str = 'r'):
         print(last_k, last_s_k, last_b, last_s_b, sep='\t')
 
 
-def make_figure(dpi_mode: str = 'low', orientation='landscape') -> plt.figure:
-    ''' Return a figure with my desired parameters. '''
+def make_figure(dpi_mode: str = 'low', orientation='landscape', size='half') -> plt.figure:
+    ''' Return a figure with my desired parameters. 
+        dpi_mode: low, high.    
+        Low is for previewing, high is for printing.
+        size: half, full.    
+        Half means half of an A4 paper sheet, so that two 'half' figures make two rows
+        which fit on a single A4 sheet. Full is your regular A4 sheets.
+    '''
     if dpi_mode == 'low':
         DPI = 80
     elif dpi_mode == 'high':
@@ -68,7 +74,13 @@ def make_figure(dpi_mode: str = 'low', orientation='landscape') -> plt.figure:
         
     if orientation != 'landscape' and orientation != 'portrait':
         raise ValueError('Invalid orientation.')
-    SIZE = (11.693, 8.268) if orientation == 'landscape' else (8.268, 11.693)
+    if size != 'half' and size != 'full':
+        raise ValueError('Invalid size.')
+
+    if size == 'half':
+        SIZE = (8.268, 11.693/2) if orientation == 'landscape' else (11.693/2, 8.268)
+    else:
+        SIZE = (11.693, 8.268) if orientation == 'landscape' else (8.268, 11.693)
 
     return plt.figure(figsize=SIZE, dpi=DPI, layout='constrained')
 

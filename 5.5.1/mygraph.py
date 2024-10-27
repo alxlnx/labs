@@ -67,7 +67,7 @@ def display_linls(ax: plt.Axes, text: bool = True, color: str = 'r'):
     ax.plot(last_x, last_x * last_k + last_b, color=color, zorder=-1)
     if text:
         print('Коэффиценты прямой: k, s_k, b, s_b')
-        print(last_k, last_s_k, last_b, last_s_b, sep='\t')
+        print(f'{last_k:.5}, {last_s_k:.5}, {last_b:.5}, {last_s_b:.5}', sep='\t')
 
 
 def make_figure(dpi_mode: str = 'low', orientation='landscape', size='half') -> plt.figure:

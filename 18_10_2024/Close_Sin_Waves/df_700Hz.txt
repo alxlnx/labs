@@ -1,0 +1,6 @@
+Oscilloscope binary file = df_700Hz.bin
+Time step = 1,000 uS
+Peak detector off, byte per sample = 1
+Voltage step = 31,25 mV
+Zero level = 180
+
